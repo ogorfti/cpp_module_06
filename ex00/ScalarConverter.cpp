@@ -6,7 +6,7 @@
 /*   By: ogorfti <ogorfti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:37:47 by ogorfti           #+#    #+#             */
-/*   Updated: 2023/10/25 13:18:25 by ogorfti          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:05:38 by ogorfti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int getPrecision(std::string s)
 void castFloat(std::string s, std::string type, char suff)
 {
 	std::cout << type;
-	if (isFloat(s) || !s.compare("nan"))
+	if (isFloat(s) || !s.compare("nan") || !s.compare("+inf") || !s.compare("+inff") || !s.compare("-inf") || !s.compare("-inff"))
 		std::cout << std::fixed << std::setprecision(getPrecision(s)) << static_cast<float> (std::strtod(s.c_str(), 0)) << suff <<'\n';
 	else if (s.size() == 1 && std::isprint(s[0]))
 		std::cout << std::fixed << std::setprecision(1) << static_cast<float> (char(s[0])) << suff << '\n';
